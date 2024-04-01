@@ -1,6 +1,7 @@
 package edu.tcu.cs.superfrogscheduler.utils.dto;
 
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 public record RequestDto (String id,
                             @NotEmpty(message = "first name is required.")
@@ -19,7 +20,7 @@ public record RequestDto (String id,
                           String organizationName,
                           @NotEmpty(message = "event address is required.")
                           String eventAddress,
-                          @NotEmpty(message = "whether on-campus is required.")
+                          @NotNull(message = "whether on-campus is required.")
                           boolean isOnCampus,
                           @NotEmpty(message = "special instructions are required.")
                           String specialInstructions,

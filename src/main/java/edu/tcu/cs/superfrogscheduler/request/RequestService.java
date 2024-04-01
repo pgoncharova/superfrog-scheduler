@@ -1,5 +1,6 @@
 package edu.tcu.cs.superfrogscheduler.request;
 
+import edu.tcu.cs.superfrogscheduler.system.exception.ObjectNotFoundException;
 import edu.tcu.cs.superfrogscheduler.utils.IdWorker;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,7 @@ public class RequestService {
     // METHODS:
     public Request findById(String id) {
         return this.requestRepository.findById(id)
-                .orElseThrow(() -> new RequestNotFoundException(id));
+                .orElseThrow(() -> new ObjectNotFoundException("request", id));
     }
 
     public List<Request> findAll() {
@@ -52,12 +53,12 @@ public class RequestService {
                     oldRequest.setDetailedDescription(update.getDetailedDescription());
                     return this.requestRepository.save(oldRequest);
                 })
-                .orElseThrow(() -> new RequestNotFoundException(id));
+                .orElseThrow(() -> new ObjectNotFoundException("request", id));
     }
 
     public void delete(String id) {
         this.requestRepository.findById(id)
-                .orElseThrow(() -> new RequestNotFoundException(id));
+                .orElseThrow(() -> new ObjectNotFoundException("request", id));
         this.requestRepository.deleteById(id);
     }
 }

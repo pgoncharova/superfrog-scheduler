@@ -1,5 +1,6 @@
 package edu.tcu.cs.superfrogscheduler.superfrog;
 
+import edu.tcu.cs.superfrogscheduler.system.exception.ObjectNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -18,7 +19,7 @@ public class SuperfrogService {
     // METHODS:
     public Superfrog findById(String email) {
         return this.superfrogRepository.findById(email)
-                .orElseThrow(() -> new SuperfrogNotFoundException(email));
+                .orElseThrow(() -> new ObjectNotFoundException("superfrog", email));
     }
 
     public List<Superfrog> findAll() {
@@ -39,12 +40,12 @@ public class SuperfrogService {
                     oldSuperfrog.setEmail(update.getEmail());
                     return this.superfrogRepository.save(oldSuperfrog);
                 })
-                .orElseThrow(() -> new SuperfrogNotFoundException(email));
+                .orElseThrow(() -> new ObjectNotFoundException("superfrog", email));
     }
 
     public void delete(String email) {
         this.superfrogRepository.findById(email)
-                .orElseThrow(() -> new SuperfrogNotFoundException(email));
+                .orElseThrow(() -> new ObjectNotFoundException("superfrog", email));
         this.superfrogRepository.deleteById(email);
     }
 }
