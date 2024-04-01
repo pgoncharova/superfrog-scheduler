@@ -2,8 +2,11 @@ package edu.tcu.cs.superfrogscheduler.request;
 
 import edu.tcu.cs.superfrogscheduler.system.Result;
 import edu.tcu.cs.superfrogscheduler.system.StatusCode;
+import edu.tcu.cs.superfrogscheduler.utils.converter.RequestDtoToRequestConverter;
+import edu.tcu.cs.superfrogscheduler.utils.converter.RequestToRequestDtoConverter;
 import edu.tcu.cs.superfrogscheduler.utils.converter.SuperfrogDtoToSuperfrogConverter;
 import edu.tcu.cs.superfrogscheduler.utils.converter.SuperfrogToSuperfrogDtoConverter;
+import edu.tcu.cs.superfrogscheduler.utils.dto.RequestDto;
 import edu.tcu.cs.superfrogscheduler.utils.dto.SuperfrogDto;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
