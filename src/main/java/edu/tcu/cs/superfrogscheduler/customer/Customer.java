@@ -1,12 +1,14 @@
 package edu.tcu.cs.superfrogscheduler.customer;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import edu.tcu.cs.superfrogscheduler.request.EventRequest;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
+
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -78,5 +80,14 @@ public class Customer {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<EventRequest> eventRequests = new ArrayList<>();
+
+    // Include methods to add event requests to this customer
+    public void addEventRequest(EventRequest eventRequest) {
+        eventRequests.add(eventRequest);
+        eventRequest.setCustomer(this);
     }
 }

@@ -2,6 +2,7 @@ package edu.tcu.cs.superfrogscheduler.request;
 
 import jakarta.persistence.*;
 import edu.tcu.cs.superfrogscheduler.customer.Customer;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class EventRequest {
@@ -9,15 +10,22 @@ public class EventRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String eventType;
-    private String eventTitle;
     private String description;
     private String specialInstructions;
     private String eventDetails;
 
+    @NotBlank(message = "Event type is required")
+    private String eventType;
+
+    @NotBlank(message = "Event title is required")
+    private String eventTitle;
+
+    // Relationship to Customer
     @ManyToOne(fetch = FetchType.LAZY)
     private Customer customer;
+
+    // Status field to indicate the state of the request
+    private String status = "Pending";
 
     // Constructors
     public EventRequest() {

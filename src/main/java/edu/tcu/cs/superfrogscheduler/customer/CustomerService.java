@@ -65,4 +65,12 @@ public class CustomerService {
         }
         return false; // Or throw an exception if preferred
     }
+
+    public EventRequest createEventRequest(Long customerId, EventRequest eventRequest) {
+
+        // Save the event request after setting the customer
+        Customer customer = customerRepository.findById(customerId).orElseThrow(/* throw a suitable exception */);
+        customer.addEventRequest(eventRequest);
+        return eventRequestRepository.save(eventRequest);
+    }
 }
