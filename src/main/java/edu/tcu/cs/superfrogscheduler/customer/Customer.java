@@ -1,12 +1,13 @@
 package edu.tcu.cs.superfrogscheduler.customer;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import edu.tcu.cs.superfrogscheduler.request.Request;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -26,6 +27,9 @@ public class Customer {
 
     @Pattern(regexp = "^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$", message = "Phone number is invalid")
     private String phoneNumber;
+
+    @OneToMany(cascade ={CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "owner")
+    private List<Request> requests = new ArrayList<>();
 
     public Customer() {
     }
@@ -78,5 +82,33 @@ public class Customer {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public List<Request> getRequests() {
+        return requests;
+    }
+
+    public void setRequests(List<Request> requests) {
+        this.requests = requests;
+    }
+
+    public void addRequest(Request request) {
+        request.setOwner(this);
+        this.requests.add(request);
+    }
+
+    public Integer getNumberOfRequests() {
+        return this.requests.size();
+    }
+
+    public void removeAllRequests() {
+        this.requests.stream().forEach(request -> request.setOwner(null));
+        this.requests = new ArrayList<>();
+    }
+
+    public void removeRequest(Request requestToBeAssigned) {
+        // Remove artifact owner.
+        requestToBeAssigned.setOwner(null);
+        this.requests.remove(requestToBeAssigned);
     }
 }

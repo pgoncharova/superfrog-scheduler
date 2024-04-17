@@ -11,8 +11,9 @@ public class CustomerToCustomerDtoConverter implements Converter<Customer, Custo
     @Override
     public CustomerDto convert(Customer source) {
         CustomerDto customerDto = new CustomerDto(source.getId(),
-                source.getCustomername(), source.isEnabled(),
-                source.getRoles());
+                source.getFirstName(), source.getLastName(),
+                source.getEmail(), source.getPhoneNumber(),
+                source.getNumberOfRequests());
         return customerDto;
     }
 }

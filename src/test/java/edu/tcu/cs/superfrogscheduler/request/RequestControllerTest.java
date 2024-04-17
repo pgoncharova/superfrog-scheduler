@@ -54,7 +54,7 @@ class RequestControllerTest {
     RequestService requestService;
 
     @Autowired
-            ObjectMapper objectMapper;
+    ObjectMapper objectMapper;
 
     List<Request> requests;
 
@@ -98,6 +98,11 @@ class RequestControllerTest {
         r2.setSponsorDescription("SMU E-sports Club will be co-sponsoring this event alongside TCU E-sports Club.");
         r2.setDetailedDescription("The event will be streamed live on https://www.twitch.tv/smu_esports");
         this.requests.add(r2);
+
+    }
+
+    @AfterEach
+    void tearDown() {
 
     }
 

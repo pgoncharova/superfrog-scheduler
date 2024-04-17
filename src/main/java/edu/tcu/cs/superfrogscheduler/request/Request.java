@@ -1,8 +1,8 @@
 package edu.tcu.cs.superfrogscheduler.request;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import edu.tcu.cs.superfrogscheduler.customer.Customer;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
@@ -37,6 +37,9 @@ public class Request implements Serializable {
     private String sponsorDescription;
 
     private String detailedDescription;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Customer owner;
 
     public Request() {
 
@@ -153,4 +156,13 @@ public class Request implements Serializable {
     public void setDetailedDescription(String detailedDescription) {
         this.detailedDescription = detailedDescription;
     }
+
+    public Customer getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Customer owner) {
+        this.owner = owner;
+    }
+
 }
