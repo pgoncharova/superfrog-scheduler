@@ -1,16 +1,16 @@
 package edu.tcu.cs.superfrogscheduler.request;
 
-import jakarta.persistence.*;
+
 import edu.tcu.cs.superfrogscheduler.customer.Customer;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
 @Entity
-public class EventRequest implements Serializable {
+public class Request implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     private String firstName;
 
@@ -39,7 +39,19 @@ public class EventRequest implements Serializable {
     private String detailedDescription;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Customer customer;
+    private Customer owner;
+
+    public Request() {
+
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -73,6 +85,22 @@ public class EventRequest implements Serializable {
         this.email = email;
     }
 
+    public String getEventType() {
+        return eventType;
+    }
+
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
+    }
+
+    public String getEventTitle() {
+        return eventTitle;
+    }
+
+    public void setEventTitle(String eventTitle) {
+        this.eventTitle = eventTitle;
+    }
+
     public String getOrganizationName() {
         return organizationName;
     }
@@ -95,6 +123,14 @@ public class EventRequest implements Serializable {
 
     public void setOnCampus(boolean onCampus) {
         isOnCampus = onCampus;
+    }
+
+    public String getSpecialInstructions() {
+        return specialInstructions;
+    }
+
+    public void setSpecialInstructions(String specialInstructions) {
+        this.specialInstructions = specialInstructions;
     }
 
     public String getBenefitsDescription() {
@@ -121,50 +157,12 @@ public class EventRequest implements Serializable {
         this.detailedDescription = detailedDescription;
     }
 
-    // Constructors
-    public EventRequest() {
+    public Customer getOwner() {
+        return owner;
     }
 
-    // Getters and setters
-    public Long getId() {
-        return id;
+    public void setOwner(Customer owner) {
+        this.owner = owner;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getEventType() {
-        return eventType;
-    }
-
-    public void setEventType(String eventType) {
-        this.eventType = eventType;
-    }
-
-    public String getEventTitle() {
-        return eventTitle;
-    }
-
-    public void setEventTitle(String eventTitle) {
-        this.eventTitle = eventTitle;
-    }
-
-    public String getSpecialInstructions() {
-        return specialInstructions;
-    }
-
-    public void setSpecialInstructions(String specialInstructions) {
-        this.specialInstructions = specialInstructions;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    // Getter and setter for eventDetails
 }

@@ -5,13 +5,14 @@ import edu.tcu.cs.superfrogscheduler.system.StatusCode;
 import edu.tcu.cs.superfrogscheduler.utils.converter.SuperfrogDtoToSuperfrogConverter;
 import edu.tcu.cs.superfrogscheduler.utils.converter.SuperfrogToSuperfrogDtoConverter;
 import edu.tcu.cs.superfrogscheduler.utils.dto.SuperfrogDto;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/v1/superfrogs")
+@RequestMapping("/api/superfrogs")
 public class SuperfrogController {
     private final SuperfrogService superfrogService;
 
@@ -27,11 +28,48 @@ public class SuperfrogController {
         this.superfrogDtoToSuperfrogConverter = superfrogDtoToSuperfrogConverter;
     }
 
-    @GetMapping("/{email}")
-    public Result findSuperfrogByEmail(@PathVariable String email) {
-        Superfrog foundSuperfrog = this.superfrogService.findById(email);
+    @GetMapping("/{superfrogEmail}")
+    public Result findSuperfrogByEmail(@PathVariable String superfrogEmail) {
+        Superfrog foundSuperfrog = this.superfrogService.findById(superfrogEmail);
         SuperfrogDto superfrogDto = this.superfrogToSuperfrogDtoConverter.convert(foundSuperfrog);
         return new Result(true, StatusCode.SUCCESS, "Find One Success", superfrogDto);
+    }
+
+    @GetMapping
+    public Result findAllSuperfrogs() {
+        List<Superfrog> foundSuperfrogs = this.superfrogService.findAll();
+        // Convert foundSuperfrogs to a list of superfrogDtos
+        List<SuperfrogDto> superfrogDtos = foundSuperfrogs.stream()
+                .map(this.superfrogToSuperfrogDtoConverter::convert)
+                .collect(Collectors.toList());
+        return new Result(true, StatusCode.SUCCESS, "Find All Success", superfrogDtos);
+    }
+
+    @PostMapping
+    public Result addSuperfrog(@Valid @RequestBody SuperfrogDto superfrogDto) {
+        // Convert SuperfrogDto to Superfrog
+        Superfrog newSuperfrog = this.superfrogDtoToSuperfrogConverter.convert(superfrogDto);
+        Superfrog savedSuperfrog = this.superfrogService.save(newSuperfrog);
+        SuperfrogDto savedSuperfrogDto = this.superfrogToSuperfrogDtoConverter.convert(savedSuperfrog);
+        return new Result(true,
+                StatusCode.SUCCESS,
+                "Add Success",
+                savedSuperfrogDto);
+    }
+
+    @PutMapping("/{superfrogEmail}")
+    public Result updateSuperfrog(@PathVariable String superfrogEmail, @Valid @RequestBody SuperfrogDto superfrogDto) {
+        Superfrog update = this.superfrogDtoToSuperfrogConverter.convert(superfrogDto);
+        Superfrog updatedSuperfrog = this.superfrogService.update(superfrogEmail, update);
+        SuperfrogDto updatedSuperfrogDto = this.superfrogToSuperfrogDtoConverter.convert(updatedSuperfrog);
+        return new Result(true, StatusCode.SUCCESS, "Update Success", updatedSuperfrogDto);
+
+    }
+
+    @DeleteMapping("/{superfrogEmail}")
+    public Result deleteSuperfrog(@PathVariable String superfrogEmail) {
+        this.superfrogService.delete(superfrogEmail);
+        return new Result(true, StatusCode.SUCCESS, "Delete Success");
     }
 
 }
