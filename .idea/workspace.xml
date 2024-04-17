@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="643a73cc-b595-4b83-8796-4dc5126a0f12" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/spiritDirector/superfrog/Superfrog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/spiritDirector/superfrog/SuperfrogController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/spiritDirector/superfrog/SuperfrogRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/spiritDirector/superfrog/SuperfrogService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="643a73cc-b595-4b83-8796-4dc5126a0f12" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,6 +70,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/spiritDirector" />
       <recent name="$PROJECT_DIR$/frontend" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
