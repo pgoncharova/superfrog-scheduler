@@ -31,7 +31,7 @@ public class CustomerControllerTests {
         EventRequest requestDetails = new EventRequest(); // Assume proper initialization
         String requestJson = convertToJson(requestDetails);
 
-        mockMvc.perform(MockMvcRequestBuilders.put("/api/customers/1/requests/1")
+        mockMvc.perform(MockMvcRequestBuilders.put("/api/customers/requests/1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(requestJson))
                 .andExpect(status().isOk())
