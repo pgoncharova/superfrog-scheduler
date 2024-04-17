@@ -58,8 +58,8 @@ class RequestControllerTest {
 
     List<Request> requests;
 
-    @Value("${api.endpoint.base-url}")
-    String baseUrl;
+    //@Value("${api.endpoint.base-url}")
+    String baseUrl = "/api";
 
     @BeforeEach
     void setUp() {
