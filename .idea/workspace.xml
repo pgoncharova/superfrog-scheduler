@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="643a73cc-b595-4b83-8796-4dc5126a0f12" name="Changes" comment="" />
+    <list default="true" id="643a73cc-b595-4b83-8796-4dc5126a0f12" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/spiritDirector/superfrog/Superfrog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/spiritDirector/superfrog/SuperfrogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/spiritDirector/superfrog/SuperfrogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/spiritDirector/superfrog/SuperfrogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,7 +71,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "westley-main-2",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/polinagoncharova/Documents/GitHub/superfrog-scheduler/frontend",
+    "last_opened_file_path": "/Users/westleyharris/Desktop/superfrog-scheduler/backend/src/main/java/edu/tcu/cs/superfrogscheduler/spiritDirector",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
@@ -132,6 +139,14 @@
       <option name="MAIN_CLASS_NAME" value="edu.tcu.cs.superfrogscheduler.request.RequestControllerTest" />
       <option name="METHOD_NAME" value="testFindRequestByIdSuccess" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SuperfrogSchedulerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="superfrog-scheduler" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.tcu.cs.superfrogscheduler.SuperfrogSchedulerApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
