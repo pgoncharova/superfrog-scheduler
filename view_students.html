@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Students</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Sidebar with dropdown functionality -->
+<div class="sidebar">
+  <div class="logo-container">
+    <img src="superfrog-logo.png" alt="SuperFrog Logo">
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-section-header">SuperFrog Students</div>
+    <div class="sidebar-section-links" style="display: none;">
+      <a href="add_student.html">Add a New Student</a>
+      <a href="view_students.html">View All Students</a>
+    </div>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-section-header">Requests</div>
+    <div class="sidebar-section-links" style="display: none;">
+      <a href="add_request.html">Add a New Request</a>
+      <a href="view_requests.html">View All Requests</a>
+    </div>
+  </div>
+  <a href="calendar.html" class="sidebar-single-link">Calendar</a>
+  <a href="reports.html" class="sidebar-single-link">Reports</a>
+</div>
+
+<div class="content">
+  <h2>View All Students</h2>
+  <div class="students-filters">
+    <input type="search" id="student-name-search" class="form-control" placeholder="Student Name">
+    <label for="active-students-only" class="checkbox-container">
+      Active Students Only
+      <input type="checkbox" id="active-students-only">
+      <span class="checkmark"></span>
+    </label>
+  </div>
+  <div class="students-table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name <span class="sort-icon">&#9660;</span></th>
+          <th>Last Name <span class="sort-icon">&#9660;</span></th>
+          <th>Email</th>
+          <th>Account Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Dynamically generated rows will go here -->
+        <tr>
+          <td>1</td>
+          <td>John</td>
+          <td>Doe</td>
+          <td>john.doe@tcu.edu</td>
+          <td>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </td>
+          <td>
+            <button class="btn btn-action">Edit</button>
+            <button class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+        <!-- More rows here -->
+      </tbody>
+    </table>
+  </div>
+  <div class="pagination">
+    <a href="#" class="page-link">Previous</a>
+    <a href="#" class="page-link active">1</a>
+    <a href="#" class="page-link">2</a>
+    <a href="#" class="page-link">3</a>
+    <a href="#" class="page-link">Next</a>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
