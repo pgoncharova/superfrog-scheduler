@@ -14,7 +14,7 @@
     </div>
 
     <!-- Router view for dynamic step components -->
-    <router-view :key="currentStep"></router-view>
+    <router-view :key="currentStep" :event-info="eventInfo" @send-data="sendData"></router-view>
 
     <div class="button-container">
       <button @click="goHome">Home</button>
@@ -24,12 +24,20 @@
       <button @click="goToNextStep" :disabled="currentStep === steps.length">
         Next
       </button>
+      <button @click="submitOrder" :disabled="currentStep !== 4">
+        Submit Order
+      </button>
     </div>
   </div>
 </template>
 
 <script>
 import router from '../../router';
+import Step1 from '../../views/step1.vue';
+import Step2 from '../../views/step2.vue';
+import Step3 from '../../views/step3.vue';
+import Step4 from '../../views/step4.vue';
+import Receipt from '../Receipt/Receipt.vue';
 
 export default {
   data() {
@@ -61,6 +69,23 @@ export default {
           isCompleted: false,
         },
       ],
+      eventInfo: {
+        contactFirstName: "",
+        contactLastName:  "",
+        email: "",
+        eventTitle: "",
+        eventDescription: "",
+        selectedDate: "",
+        startTime: "",
+        endTime: "",
+        organizationName: "",
+        phoneNumber: "",
+        address: "",
+        specialInstruction: "",
+        outsideOrg: "",
+        expenseBenefit: "",
+        eventType: "",
+      }
     };
   },
   methods: {
@@ -84,11 +109,24 @@ export default {
         router.push(`/step${this.currentStep}`);
       }
     },
+    sendData(data) {
+      this.eventInfo = data;
+    },
+    submitOrder() {
+      router.push(`/receipt`);
+    }
   },
+  components: {
+    Step1,
+    Step2,
+    Step3,
+    Step4,
+    Receipt
+  }
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 h1 {
   margin-top: 10px;
   margin-left: 50px;
@@ -139,7 +177,9 @@ h1 {
 .button-container {
   display: flex;
   justify-content: center;
+  align-self: center;
   align-items: center;
+  width: 100%;
 }
 
 button {
