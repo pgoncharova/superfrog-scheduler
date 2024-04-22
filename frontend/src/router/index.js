@@ -8,6 +8,7 @@ import Step1 from '../views/step1.vue';
 import Step2 from '../views/step2.vue';
 import Step3 from '../views/step3.vue';
 import Step4 from '../views/step4.vue';
+import Receipt from '../components/Receipt/Receipt.vue';
 
 
 
@@ -29,8 +30,7 @@ const router = createRouter({
             ]
         },        
         { path: '/modify', name: 'modify', component: RequestModify },
-        ,
-
+        { path: '/receipt', name: 'receipt', component: Receipt},
     ],
 });
 export default router;
