@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="643a73cc-b595-4b83-8796-4dc5126a0f12" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/test/java/edu/tcu/cs/superfrogscheduler/request/RequestControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/edu/tcu/cs/superfrogscheduler/request/RequestControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/test/java/edu/tcu/cs/superfrogscheduler/superfrog/SuperfrogControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/edu/tcu/cs/superfrogscheduler/superfrog/SuperfrogControllerTest.java" afterDir="false" />
     </list>
