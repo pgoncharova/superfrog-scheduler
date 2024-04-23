@@ -1,15 +1,11 @@
 package edu.tcu.cs.superfrogscheduler.customer;
 
-import edu.tcu.cs.superfrogscheduler.customer.Customer;
-import edu.tcu.cs.superfrogscheduler.customer.CustomerService;
-import edu.tcu.cs.superfrogscheduler.request.EventRequest;
 import edu.tcu.cs.superfrogscheduler.system.Result;
 import edu.tcu.cs.superfrogscheduler.system.StatusCode;
 import edu.tcu.cs.superfrogscheduler.utils.converter.CustomerDtoToCustomerConverter;
 import edu.tcu.cs.superfrogscheduler.utils.converter.CustomerToCustomerDtoConverter;
 import edu.tcu.cs.superfrogscheduler.utils.dto.CustomerDto;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

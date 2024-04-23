@@ -5,13 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="643a73cc-b595-4b83-8796-4dc5126a0f12" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/edu/tcu/cs/superfrogscheduler/customer/CustomerControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/edu/tcu/cs/superfrogscheduler/customer/CustomerServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/request/RequestStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/spiritDirector/SpiritDirector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/spiritDirector/SpiritDirectorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/spiritDirector/SpiritDirectorRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/spiritDirector/SpiritDirectorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/system/DBDataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/system/DBDataInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/system/DBDataInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/system/DBDataInitializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/edu/tcu/cs/superfrogscheduler/request/RequestControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/edu/tcu/cs/superfrogscheduler/request/RequestControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/edu/tcu/cs/superfrogscheduler/superfrog/SuperfrogControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/edu/tcu/cs/superfrogscheduler/superfrog/SuperfrogControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/customer/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/customer/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/customer/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/customer/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/request/EventRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/request/EventRequestRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/request/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/request/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/request/RequestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/request/RequestRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/request/RequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/request/RequestService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +32,7 @@
         <option value="Interface" />
         <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>

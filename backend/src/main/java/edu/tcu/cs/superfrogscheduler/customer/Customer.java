@@ -34,16 +34,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(Long id, String firstName, String lastName, String email, String phoneNumber) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-    }
-
     // Getters and Setters
-
     public Long getId() {
         return id;
     }
