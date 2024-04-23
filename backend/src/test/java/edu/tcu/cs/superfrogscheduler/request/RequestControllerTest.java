@@ -107,7 +107,7 @@ class RequestControllerTest {
     }
 
     @Test
-    void testFindRequestByIdSuccess() throws Exception {
+    void testFindByIdSuccess() throws Exception {
         // Given
         given(this.requestService.findById("123456789"))
                 .willReturn(this.requests.get(0));
@@ -125,7 +125,7 @@ class RequestControllerTest {
     }
 
     @Test
-    void testFindRequestByIdNotFound() throws Exception {
+    void testFindByIdNotFound() throws Exception {
         // Given
         given(this.requestService.findById("123456789"))
                 .willThrow(new ObjectNotFoundException("request", "123456789"));
@@ -143,7 +143,7 @@ class RequestControllerTest {
     }
 
     @Test
-    void testFindAllRequestsSuccess() throws Exception {
+    void testFindAllSuccess() throws Exception {
         // Given
         given(this.requestService.findAll()).willReturn(this.requests);
         // When and then
@@ -167,7 +167,7 @@ class RequestControllerTest {
     }
 
     @Test
-    void testAddRequest() throws Exception {
+    void testAdd() throws Exception {
         // Given
         RequestDto requestDto = new RequestDto(null,
                 "Sam",
@@ -220,7 +220,7 @@ class RequestControllerTest {
     }
 
     @Test
-    void testUpdateRequest() throws Exception {
+    void testUpdate() throws Exception {
         // Given
         RequestDto requestDto = new RequestDto("123456789",
                 "John",
@@ -277,7 +277,7 @@ class RequestControllerTest {
     }
 
     @Test
-    void testUpdateRequestErrorWithNonExistentId() throws Exception {
+    void testUpdateErrorWithNonExistentId() throws Exception {
         // Given
         RequestDto requestDto = new RequestDto("123456789",
                 "John",
@@ -312,7 +312,7 @@ class RequestControllerTest {
     }
 
     @Test
-    void testDeleteRequestSuccess() throws Exception {
+    void testDeleteSuccess() throws Exception {
         // Given
         doNothing().when(this.requestService).delete("123456789");
 
@@ -327,7 +327,7 @@ class RequestControllerTest {
     }
 
     @Test
-    void testDeleteRequestErrorWithNonExistentId() throws Exception {
+    void testDeleteErrorWithNonExistentId() throws Exception {
         // Given
         doThrow(new ObjectNotFoundException("request", "123456789"))
                 .when(this.requestService)

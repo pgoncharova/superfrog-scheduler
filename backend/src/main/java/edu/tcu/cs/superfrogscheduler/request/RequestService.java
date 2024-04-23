@@ -4,7 +4,10 @@ import edu.tcu.cs.superfrogscheduler.system.exception.ObjectNotFoundException;
 import edu.tcu.cs.superfrogscheduler.utils.IdWorker;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Transactional
@@ -51,6 +54,8 @@ public class RequestService {
                     oldRequest.setBenefitsDescription(update.getBenefitsDescription());
                     oldRequest.setSponsorDescription(update.getSponsorDescription());
                     oldRequest.setDetailedDescription(update.getDetailedDescription());
+                    oldRequest.setStatus(update.getStatus());
+                    oldRequest.setRejectionReason(update.getRejectionReason());
                     return this.requestRepository.save(oldRequest);
                 })
                 .orElseThrow(() -> new ObjectNotFoundException("request", id));
@@ -61,4 +66,69 @@ public class RequestService {
                 .orElseThrow(() -> new ObjectNotFoundException("request", id));
         this.requestRepository.deleteById(id);
     }
+
+    public void approve(String id) {
+        Request request = findById(id);
+        request.setStatus(RequestStatus.APPROVED);
+        save(request);
+    }
+
+    public void reject(String id, String rejectionReason) {
+        Request request = findById(id);
+        request.setStatus(RequestStatus.REJECTED);
+        request.setRejectionReason(rejectionReason);
+        save(request);
+    }
+
+    public List<Request> search(Map<String, String> searchCriteria) {
+        List<Request> requests = new ArrayList<>();
+
+        String firstName = searchCriteria.get("firstName");
+        String lastName = searchCriteria.get("lastName");
+        String eventType = searchCriteria.get("eventType");
+        String eventTitle = searchCriteria.get("eventTitle");
+        String organizationName = searchCriteria.get("organizationName");
+        String status = searchCriteria.get("status");
+
+        // Search by firstName
+        if (firstName != null && !firstName.isEmpty()) {
+            List<Request> byFirstName = requestRepository.findByFirstName(firstName);
+            requests.addAll(byFirstName);
+        }
+
+        // Search by lastName
+        if (lastName != null && !lastName.isEmpty()) {
+            List<Request> byLastName = requestRepository.findByLastName(lastName);
+            requests.addAll(byLastName);
+        }
+
+        // Search by eventType
+        if (eventType != null && !eventType.isEmpty()) {
+            List<Request> byEventType = requestRepository.findByEventType(eventType);
+            requests.addAll(byEventType);
+        }
+
+        // Search by eventTitle
+        if (eventTitle != null && !eventTitle.isEmpty()) {
+            List<Request> byEventTitle = requestRepository.findByEventTitle(eventTitle);
+            requests.addAll(byEventTitle);
+        }
+
+        // Search by organizationName
+        if (organizationName != null && !organizationName.isEmpty()) {
+            List<Request> byOrganizationName = requestRepository.findByOrganizationName(organizationName);
+            requests.addAll(byOrganizationName);
+        }
+
+        // Search by status
+        if (status != null && !status.isEmpty()) {
+            RequestStatus requestStatus = RequestStatus.valueOf(status.toUpperCase());
+            List<Request> byStatus = requestRepository.findByStatus(requestStatus);
+            requests.addAll(byStatus);
+        }
+
+        return requests;
+    }
+
+
 }

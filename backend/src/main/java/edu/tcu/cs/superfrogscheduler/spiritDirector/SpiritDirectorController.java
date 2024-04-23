@@ -1,7 +1,7 @@
 package edu.tcu.cs.superfrogscheduler.spiritDirector;
 
-import edu.tcu.cs.superfrogscheduler.request.EventRequest;
-import edu.tcu.cs.superfrogscheduler.request.EventRequestService;
+import edu.tcu.cs.superfrogscheduler.request.Request;
+import edu.tcu.cs.superfrogscheduler.request.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,18 +14,18 @@ import java.util.Map;
 @RequestMapping("/api/spirit-director")
 public class SpiritDirectorController {
 
-    private final EventRequestService eventRequestService;
+    private final RequestService requestService;
 
     @Autowired
-    public SpiritDirectorController(EventRequestService eventRequestService) {
-        this.eventRequestService = eventRequestService;
+    public SpiritDirectorController(RequestService requestService) {
+        this.requestService = requestService;
     }
 
     // Endpoint for the Spirit Director to approve an appearance request
     @PostMapping("/requests/{requestId}/approve")
     public ResponseEntity<?> approveAppearanceRequest(@PathVariable String requestId) {
         try {
-            eventRequestService.approveEventRequest(requestId);
+            requestService.approve(requestId);
             return ResponseEntity.ok("Appearance request approved successfully.");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error approving request: " + e.getMessage());
@@ -36,7 +36,7 @@ public class SpiritDirectorController {
     @PostMapping("/requests/{requestId}/reject")
     public ResponseEntity<?> rejectAppearanceRequest(@PathVariable String requestId, @RequestBody String reason) {
         try {
-            eventRequestService.rejectEventRequest(requestId, reason);
+            requestService.reject(requestId, reason);
             return ResponseEntity.ok("Appearance request rejected successfully.");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error rejecting request: " + e.getMessage());
@@ -45,9 +45,9 @@ public class SpiritDirectorController {
 
     // Endpoint to create a new appearance request for a TCU event
     @PostMapping("/requests")
-    public ResponseEntity<?> createAppearanceRequest(@RequestBody EventRequest newRequest) {
+    public ResponseEntity<?> createAppearanceRequest(@RequestBody Request newRequest) {
         try {
-            EventRequest createdRequest = eventRequestService.createEventRequest(newRequest);
+            Request createdRequest = requestService.save(newRequest);
             return new ResponseEntity<>(createdRequest, HttpStatus.CREATED);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error creating request: " + e.getMessage());
@@ -58,7 +58,7 @@ public class SpiritDirectorController {
     @GetMapping("/requests")
     public ResponseEntity<?> findAppearanceRequests(@RequestParam Map<String, String> searchCriteria) {
         try {
-            List<EventRequest> requests = eventRequestService.searchEventRequests(searchCriteria);
+            List<Request> requests = requestService.search(searchCriteria);
             return ResponseEntity.ok(requests);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error finding requests: " + e.getMessage());
@@ -69,7 +69,7 @@ public class SpiritDirectorController {
     @GetMapping("/requests/{requestId}")
     public ResponseEntity<?> viewAppearanceRequest(@PathVariable String requestId) {
         try {
-            EventRequest request = eventRequestService.viewEventRequest(requestId);
+            Request request = requestService.findById(requestId);
             return ResponseEntity.ok(request);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Request not found: " + e.getMessage());

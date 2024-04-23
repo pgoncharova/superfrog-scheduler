@@ -1,5 +1,7 @@
 package edu.tcu.cs.superfrogscheduler.system;
 
+import edu.tcu.cs.superfrogscheduler.customer.Customer;
+import edu.tcu.cs.superfrogscheduler.customer.CustomerRepository;
 import edu.tcu.cs.superfrogscheduler.request.Request;
 import edu.tcu.cs.superfrogscheduler.request.RequestRepository;
 import edu.tcu.cs.superfrogscheduler.superfrog.Superfrog;
@@ -14,10 +16,13 @@ public class DBDataInitializer implements CommandLineRunner {
 
     private final SuperfrogRepository superfrogRepository;
 
+    private final CustomerRepository customerRepository;
+
     public DBDataInitializer(RequestRepository requestRepository,
-                             SuperfrogRepository superfrogRepository) {
+                             SuperfrogRepository superfrogRepository, CustomerRepository customerRepository) {
         this.requestRepository = requestRepository;
         this.superfrogRepository = superfrogRepository;
+        this.customerRepository = customerRepository;
     }
 
     @Override
@@ -76,6 +81,33 @@ public class DBDataInitializer implements CommandLineRunner {
 
         superfrogRepository.save(s1);
         superfrogRepository.save(s2);
+
+        // Create some customers
+        Customer c1 = new Customer();
+        c1.setId(1L);
+        c1.setFirstName("John");
+        c1.setLastName("Doe");
+        c1.setEmail("john.doe@example.com");
+        c1.setPhoneNumber("123-456-7890");
+
+        Customer c2 = new Customer();
+        c2.setId(2L);
+        c2.setFirstName("Jane");
+        c2.setLastName("Smith");
+        c2.setEmail("jane.smith@example.com");
+        c2.setPhoneNumber("987-654-3210");
+
+        /**
+         * Customer c3 = new Customer();
+         * c3.setId(3L);
+         * c3.setFirstName("Emma");
+         * c3.setLastName("Johnson");
+         * c3.setEmail("emma.johnson@example.com");
+         * c3.setPhoneNumber("(555) 123-4567");
+         */
+
+        customerRepository.save(c1);
+        customerRepository.save(c2);
 
     }
 }

@@ -38,11 +38,31 @@ public class Request implements Serializable {
 
     private String detailedDescription;
 
+    private String rejectionReason;
+
+    private RequestStatus status;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Customer owner;
 
     public Request() {
 
+    }
+
+    public String getRejectionReason() {
+        return rejectionReason;
+    }
+
+    public void setRejectionReason(String rejectionReason) {
+        this.rejectionReason = rejectionReason;
+    }
+
+    public RequestStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(RequestStatus status) {
+        this.status = status;
     }
 
     public String getId() {

@@ -28,9 +28,9 @@ public class SuperfrogController {
         this.superfrogDtoToSuperfrogConverter = superfrogDtoToSuperfrogConverter;
     }
 
-    @GetMapping("/{superfrogEmail}")
-    public Result findSuperfrogByEmail(@PathVariable String superfrogEmail) {
-        Superfrog foundSuperfrog = this.superfrogService.findById(superfrogEmail);
+    @GetMapping("/{superfrogId}")
+    public Result findSuperfrogById(@PathVariable String superfrogId) {
+        Superfrog foundSuperfrog = this.superfrogService.findById(superfrogId);
         SuperfrogDto superfrogDto = this.superfrogToSuperfrogDtoConverter.convert(foundSuperfrog);
         return new Result(true, StatusCode.SUCCESS, "Find One Success", superfrogDto);
     }
@@ -57,18 +57,18 @@ public class SuperfrogController {
                 savedSuperfrogDto);
     }
 
-    @PutMapping("/{superfrogEmail}")
-    public Result updateSuperfrog(@PathVariable String superfrogEmail, @Valid @RequestBody SuperfrogDto superfrogDto) {
+    @PutMapping("/{superfrogId}")
+    public Result updateSuperfrog(@PathVariable String superfrogId, @Valid @RequestBody SuperfrogDto superfrogDto) {
         Superfrog update = this.superfrogDtoToSuperfrogConverter.convert(superfrogDto);
-        Superfrog updatedSuperfrog = this.superfrogService.update(superfrogEmail, update);
+        Superfrog updatedSuperfrog = this.superfrogService.update(superfrogId, update);
         SuperfrogDto updatedSuperfrogDto = this.superfrogToSuperfrogDtoConverter.convert(updatedSuperfrog);
         return new Result(true, StatusCode.SUCCESS, "Update Success", updatedSuperfrogDto);
 
     }
 
-    @DeleteMapping("/{superfrogEmail}")
-    public Result deleteSuperfrog(@PathVariable String superfrogEmail) {
-        this.superfrogService.delete(superfrogEmail);
+    @DeleteMapping("/{superfrogId}")
+    public Result deleteSuperfrog(@PathVariable String superfrogId) {
+        this.superfrogService.delete(superfrogId);
         return new Result(true, StatusCode.SUCCESS, "Delete Success");
     }
 

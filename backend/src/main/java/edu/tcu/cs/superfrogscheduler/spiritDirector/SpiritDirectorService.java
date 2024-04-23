@@ -1,6 +1,8 @@
 package edu.tcu.cs.superfrogscheduler.spiritDirector;
 
-import edu.tcu.cs.superfrogscheduler.request.EventRequest;
+import edu.tcu.cs.superfrogscheduler.request.Request;
+import edu.tcu.cs.superfrogscheduler.request.RequestRepository;
+import edu.tcu.cs.superfrogscheduler.request.RequestStatus;
 import edu.tcu.cs.superfrogscheduler.superfrog.Superfrog;
 import edu.tcu.cs.superfrogscheduler.superfrog.SuperfrogRepository;
 import edu.tcu.cs.superfrogscheduler.system.exception.ObjectNotFoundException;
@@ -11,23 +13,32 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@Transactional
 public class SpiritDirectorService {
 
-    @Autowired
     private SpiritDirectorRepository spiritDirectorRepository; // Assuming you have a repository for data access
+
+    private RequestRepository requestRepository;
+
+    @Autowired
+    public SpiritDirectorService(SpiritDirectorRepository spiritDirectorRepository,RequestRepository requestRepository) {
+        this.spiritDirectorRepository = spiritDirectorRepository;
+        this.requestRepository = requestRepository;
+    }
 
     // Method to approve an appearance request
     public void approveAppearanceRequest(String requestId) throws Exception {
         // Retrieve the request from the database
-        EventRequest request = spiritDirectorRepository.findById(requestId);
+        Request request = this.requestRepository.findById(requestId)
+                .orElseThrow(() -> new ObjectNotFoundException("request", requestId));
 
         // Check if the request exists and is in "Pending" status
-        if (request != null && request.getStatus().equals("Pending")) {
+        if (request != null && request.getStatus().equals(RequestStatus.PENDING)) {
             // Set the request status to "Approved"
-            request.setStatus("Approved");
+            request.setStatus(RequestStatus.APPROVED);
 
             // Update the request in the database
-            spiritDirectorRepository.save(request);
+            this.requestRepository.save(request);
 
             // Logic to handle conflicts with other pending requests, if necessary
 
@@ -41,18 +52,19 @@ public class SpiritDirectorService {
     // Method to reject an appearance request
     public void rejectAppearanceRequest(String requestId, String reason) throws Exception {
         // Retrieve the request from the database
-        EventRequest request = spiritDirectorRepository.findById(requestId);
+        Request request = this.requestRepository.findById(requestId)
+                .orElseThrow(() -> new ObjectNotFoundException("request", requestId));
 
         // Check if the request exists and is in "Pending" status
         if (request != null && request.getStatus().equals("Pending")) {
             // Set the request status to "Rejected"
-            request.setStatus("Rejected");
+            request.setStatus(RequestStatus.REJECTED);
 
             // Set the rejection reason
             request.setRejectionReason(reason);
 
             // Update the request in the database
-            spiritDirectorRepository.save(request);
+            this.requestRepository.save(request);
 
             // Notify relevant parties of the rejection
             notifyRejection(request);
@@ -62,12 +74,12 @@ public class SpiritDirectorService {
     }
 
     // Method to notify parties about approval
-    private void notifyApproval(EventRequest request) {
+    private void notifyApproval(Request request) {
         // Send email or other notification to relevant parties
     }
 
     // Method to notify parties about rejection
-    private void notifyRejection(EventRequest request) {
+    private void notifyRejection(Request request) {
         // Send email or other notification to relevant parties
     }
 }
