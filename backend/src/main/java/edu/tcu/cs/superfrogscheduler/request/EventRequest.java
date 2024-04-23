@@ -30,7 +30,11 @@ public class EventRequest implements Serializable {
 
     private boolean isOnCampus;
 
+    private EventRequestStatus status;
+
     private String specialInstructions;
+
+    private String rejectionReason;
 
     private String benefitsDescription;
 
@@ -166,5 +170,12 @@ public class EventRequest implements Serializable {
         this.customer = customer;
     }
 
-    // Getter and setter for eventDetails
+    public enum EventRequestStatus {
+        PENDING,
+        APPROVED,
+        REJECTED
+    }
+
 }
+
+
