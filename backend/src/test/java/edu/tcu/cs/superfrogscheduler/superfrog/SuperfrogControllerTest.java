@@ -92,7 +92,7 @@ class SuperfrogControllerTest {
     }
 
     @Test
-    void testFindSuperfrogByIdSuccess() throws Exception {
+    void testFindByIdSuccess() throws Exception {
         // Given
         given(this.superfrogService.findById("s.frog@tcu.edu"))
                 .willReturn(this.superfrogs.get(0));
@@ -110,7 +110,7 @@ class SuperfrogControllerTest {
     }
 
     @Test
-    void testFindSuperfrogByIdNotFound() throws Exception {
+    void testFindByIdNotFound() throws Exception {
         // Given
         given(this.superfrogService.findById("s.frog@tcu.edu"))
                 .willThrow(new ObjectNotFoundException("superfrog", "s.frog@tcu.edu"));
@@ -128,7 +128,7 @@ class SuperfrogControllerTest {
     }
 
     @Test
-    void testFindAllSuperfrogsSuccess() throws Exception {
+    void testFindAllSuccess() throws Exception {
         // Given
         given(this.superfrogService.findAll()).willReturn(this.superfrogs);
         // When and then
@@ -152,7 +152,7 @@ class SuperfrogControllerTest {
     }
 
     @Test
-    void testAddSuperfrog() throws Exception {
+    void testAdd() throws Exception {
         // Given
         SuperfrogDto superfrogDto = new SuperfrogDto("New",
                 "Frog",
@@ -187,7 +187,7 @@ class SuperfrogControllerTest {
     }
 
     @Test
-    void testUpdateSuperfrog() throws Exception {
+    void testUpdate() throws Exception {
         // Given
         SuperfrogDto superfrogDto = new SuperfrogDto("Super",
                 "Frog",
@@ -226,7 +226,7 @@ class SuperfrogControllerTest {
     }
 
     @Test
-    void testUpdateSuperfrogErrorWithNonExistentId() throws Exception {
+    void testUpdateErrorWithNonExistentId() throws Exception {
         // Given
         SuperfrogDto superfrogDto = new SuperfrogDto("Super",
                 "Frog",
@@ -252,7 +252,7 @@ class SuperfrogControllerTest {
     }
 
     @Test
-    void testDeleteSuperfrogSuccess() throws Exception {
+    void testDeleteSuccess() throws Exception {
         // Given
         doNothing().when(this.superfrogService).delete("s.frog@tcu.edu");
 
@@ -267,7 +267,7 @@ class SuperfrogControllerTest {
     }
 
     @Test
-    void testDeleteSuperfrogErrorWithNonExistentId() throws Exception {
+    void testDeleteErrorWithNonExistentId() throws Exception {
         // Given
         doThrow(new ObjectNotFoundException("superfrog", "s.frog@tcu.edu"))
                 .when(this.superfrogService)
