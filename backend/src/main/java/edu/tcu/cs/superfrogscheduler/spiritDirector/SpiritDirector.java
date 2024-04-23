@@ -1,4 +1,4 @@
-package edu.tcu.cs.superfrogscheduler.spiritDirector.superfrog;
+package edu.tcu.cs.superfrogscheduler.spiritDirector;
 
 
 import jakarta.persistence.Entity;
@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import java.io.Serializable;
 
 @Entity
-public class Superfrog implements Serializable {
+public class SpiritDirector implements Serializable {
 
     private String firstName;
 
@@ -20,7 +20,7 @@ public class Superfrog implements Serializable {
     @Id
     private String email;
 
-    public Superfrog() {
+    public SpiritDirector() {
 
     }
 
