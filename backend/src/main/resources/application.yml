@@ -4,6 +4,10 @@ spring:
     username: sa
     password:
     driver-class-name: org.h2.Driver
+  profiles:
+    active: dev
 api:
   endpoint:
     base-url: /api
+server:
+  port: 8080
