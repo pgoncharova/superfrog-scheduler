@@ -2,6 +2,10 @@ package edu.tcu.cs.superfrogscheduler.superfrog;
 
 import edu.tcu.cs.superfrogscheduler.system.exception.ObjectNotFoundException;
 import jakarta.transaction.Transactional;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -31,16 +35,15 @@ public class SuperfrogService {
     }
 
     public Superfrog update(String email, Superfrog update) {
-        return this.superfrogRepository.findById(email)
-                .map(oldSuperfrog -> {
-                    oldSuperfrog.setFirstName(update.getFirstName());
-                    oldSuperfrog.setLastName(update.getLastName());
-                    oldSuperfrog.setPhoneNumber(update.getPhoneNumber());
-                    oldSuperfrog.setPhysicalAddress(update.getPhysicalAddress());
-                    oldSuperfrog.setEmail(update.getEmail());
-                    return this.superfrogRepository.save(oldSuperfrog);
-                })
+        Superfrog oldSuperfrog = this.superfrogRepository.findById(email)
                 .orElseThrow(() -> new ObjectNotFoundException("superfrog", email));
+        oldSuperfrog.setFirstName(update.getFirstName());
+        oldSuperfrog.setLastName(update.getLastName());
+        oldSuperfrog.setPhoneNumber(update.getPhoneNumber());
+        oldSuperfrog.setPhysicalAddress(update.getPhysicalAddress());
+        oldSuperfrog.setEmail(update.getEmail());
+        oldSuperfrog.setEnabled(update.isEnabled());
+        return this.superfrogRepository.save(oldSuperfrog);
     }
 
     public void delete(String email) {
@@ -48,4 +51,5 @@ public class SuperfrogService {
                 .orElseThrow(() -> new ObjectNotFoundException("superfrog", email));
         this.superfrogRepository.deleteById(email);
     }
+
 }

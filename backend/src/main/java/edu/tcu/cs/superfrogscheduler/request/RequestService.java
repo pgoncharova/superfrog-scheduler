@@ -56,6 +56,8 @@ public class RequestService {
                     oldRequest.setDetailedDescription(update.getDetailedDescription());
                     oldRequest.setStatus(update.getStatus());
                     oldRequest.setRejectionReason(update.getRejectionReason());
+                    oldRequest.setOwner(update.getOwner());
+                    oldRequest.setSuperfrog(update.getSuperfrog());
                     return this.requestRepository.save(oldRequest);
                 })
                 .orElseThrow(() -> new ObjectNotFoundException("request", id));

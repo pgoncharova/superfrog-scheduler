@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.expression.spel.ast.NullLiteral;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
@@ -182,7 +183,8 @@ class RequestControllerTest {
                 "N/A",
                 "Allergy possibility with dogs.",
                 "TCU",
-                "We will be educating our students on endangered animals.");
+                "We will be educating our students on endangered animals.",
+                null, null);
         String json = this.objectMapper.writeValueAsString(requestDto);
 
         Request savedRequest = new Request();
@@ -235,7 +237,7 @@ class RequestControllerTest {
                 "Please park in the parking lot!",
                 "Water and pizza will be provided.",
                 "N/A",
-                "This event is my son's birthday party.");
+                "This event is my son's birthday party.", null, null);
         String json = this.objectMapper.writeValueAsString(requestDto);
 
         Request updatedRequest = new Request();
@@ -292,7 +294,7 @@ class RequestControllerTest {
                 "Please park in the parking lot!",
                 "Water and pizza will be provided.",
                 "N/A",
-                "This event is my son's birthday party.");
+                "This event is my son's birthday party.", null, null);
         String json = this.objectMapper.writeValueAsString(requestDto);
 
         given(this.requestService.update(eq("123456789"),

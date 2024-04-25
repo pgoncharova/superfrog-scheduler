@@ -8,6 +8,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class RequestToRequestDtoConverter implements Converter<Request, RequestDto> {
 
+    private final SuperfrogToSuperfrogDtoConverter superfrogToSuperfrogDtoConverter;
+    private final CustomerToCustomerDtoConverter customerToCustomerDtoConverter;
+
+    public RequestToRequestDtoConverter(SuperfrogToSuperfrogDtoConverter superfrogToSuperfrogDtoConverter, CustomerToCustomerDtoConverter customerToCustomerDtoConverter) {
+        this.superfrogToSuperfrogDtoConverter = superfrogToSuperfrogDtoConverter;
+        this.customerToCustomerDtoConverter = customerToCustomerDtoConverter;
+    }
+
     @Override
     public RequestDto convert(Request source) {
         RequestDto requestDto = new RequestDto(source.getId(),
@@ -15,7 +23,9 @@ public class RequestToRequestDtoConverter implements Converter<Request, RequestD
                 source.getEmail(), source.getEventType(), source.getEventTitle(),
                 source.getOrganizationName(), source.getEventAddress(), source.isOnCampus(),
                 source.getSpecialInstructions(), source.getBenefitsDescription(), source.getSponsorDescription(),
-                source.getDetailedDescription());
+                source.getDetailedDescription(),
+                source.getOwner() != null ? this.customerToCustomerDtoConverter.convert(source.getOwner()) : null,
+                source.getSuperfrog() != null ? this.superfrogToSuperfrogDtoConverter.convert(source.getSuperfrog()) : null);
         return requestDto;
     }
 }

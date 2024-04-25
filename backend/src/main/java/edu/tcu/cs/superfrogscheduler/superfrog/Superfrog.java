@@ -1,10 +1,15 @@
 package edu.tcu.cs.superfrogscheduler.superfrog;
 
 
+import edu.tcu.cs.superfrogscheduler.request.Request;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Superfrog implements Serializable {
@@ -19,6 +24,11 @@ public class Superfrog implements Serializable {
 
     @Id
     private String email;
+
+    private boolean enabled;
+
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "superfrog")
+    private List<Request> requests = new ArrayList<>();
 
     public Superfrog() {
 
@@ -62,5 +72,36 @@ public class Superfrog implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public List<Request> getRequests() {
+        return requests;
+    }
+
+    public void setRequests(List<Request> requests) {
+        this.requests = requests;
+    }
+
+    public void addRequest(Request request) {
+        request.setSuperfrog(this);
+        this.requests.add(request);
+    }
+
+    public void removeRequest(Request request) {
+        request.setSuperfrog(null);
+        this.requests.remove(request);
+    }
+
+    public void removeAllRequests() {
+        this.requests.stream().forEach(request -> request.setSuperfrog(null));
+        this.requests = null;
     }
 }

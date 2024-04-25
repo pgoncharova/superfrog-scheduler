@@ -38,6 +38,7 @@ import Step2 from '../../views/step2.vue';
 import Step3 from '../../views/step3.vue';
 import Step4 from '../../views/step4.vue';
 import Receipt from '../Receipt/Receipt.vue';
+import axios from 'axios';
 
 export default {
   data() {

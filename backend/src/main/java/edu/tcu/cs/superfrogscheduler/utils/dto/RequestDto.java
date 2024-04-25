@@ -29,5 +29,7 @@ public record RequestDto (String id,
                           @NotEmpty(message = "sponsor description is required.")
                           String sponsorDescription,
                           @NotEmpty(message = "detailed description is required.")
-                          String detailedDescription) {
+                          String detailedDescription,
+                          CustomerDto customerDto,
+                          SuperfrogDto superfrogDto) {
 }
