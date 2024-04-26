@@ -1,11 +1,12 @@
 package edu.tcu.cs.superfrogscheduler.system;
 
-import edu.tcu.cs.superfrogscheduler.customer.Customer;
 import edu.tcu.cs.superfrogscheduler.customer.CustomerRepository;
 import edu.tcu.cs.superfrogscheduler.request.Request;
 import edu.tcu.cs.superfrogscheduler.request.RequestRepository;
 import edu.tcu.cs.superfrogscheduler.superfrog.Superfrog;
 import edu.tcu.cs.superfrogscheduler.superfrog.SuperfrogRepository;
+import edu.tcu.cs.superfrogscheduler.user.SuperfrogUser;
+import edu.tcu.cs.superfrogscheduler.user.SuperfrogUserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -18,11 +19,14 @@ public class DBDataInitializer implements CommandLineRunner {
 
     private final CustomerRepository customerRepository;
 
+    private final SuperfrogUserService superfrogUserService;
+
     public DBDataInitializer(RequestRepository requestRepository,
-                             SuperfrogRepository superfrogRepository, CustomerRepository customerRepository) {
+                             SuperfrogRepository superfrogRepository, CustomerRepository customerRepository, SuperfrogUserService superfrogUserService) {
         this.requestRepository = requestRepository;
         this.superfrogRepository = superfrogRepository;
         this.customerRepository = customerRepository;
+        this.superfrogUserService = superfrogUserService;
     }
 
     @Override
@@ -61,8 +65,8 @@ public class DBDataInitializer implements CommandLineRunner {
         r2.setSponsorDescription("SMU E-sports Club will be co-sponsoring this event alongside TCU E-sports Club.");
         r2.setDetailedDescription("The event will be streamed live on https://www.twitch.tv/smu_esports");
 
-        requestRepository.save(r1);
-        requestRepository.save(r2);
+        this.requestRepository.save(r1);
+        this.requestRepository.save(r2);
 
         // Create some superfrog students
         Superfrog s1 = new Superfrog();
@@ -79,10 +83,45 @@ public class DBDataInitializer implements CommandLineRunner {
         s2.setPhoneNumber("(222) 222-2222");
         s2.setPhysicalAddress("3100 Main Drive, Fort Worth, TX 76129");
 
-        superfrogRepository.save(s1);
-        superfrogRepository.save(s2);
+        Superfrog s3 = new Superfrog();
+        s3.setEmail("spirit@tcu.edu");
+        s3.setFirstName("Spirit");
+        s3.setLastName("Director");
+        s3.setPhoneNumber("(123) 222-2222");
+        s3.setPhysicalAddress("Sadler Hall, Fort Worth, TX 76129");
+
+        this.superfrogRepository.save(s1);
+        this.superfrogRepository.save(s2);
+        this.superfrogRepository.save(s3);
+
+        // Create users
+        SuperfrogUser u1 = new SuperfrogUser();
+        u1.setEnabled(true);
+        u1.setUsername(s1.getEmail());
+        u1.setId(1);
+        u1.setPassword("hello");
+        u1.setRoles("superfrog");
+
+        SuperfrogUser u2 = new SuperfrogUser();
+        u2.setEnabled(true);
+        u2.setUsername(s2.getEmail());
+        u2.setId(2);
+        u2.setPassword("hello");
+        u2.setRoles("superfrog");
+
+        SuperfrogUser u3 = new SuperfrogUser();
+        u3.setEnabled(true);
+        u3.setUsername(s3.getEmail());
+        u3.setId(3);
+        u3.setPassword("hello");
+        u3.setRoles("superfrog spiritdirector");
+
+        this.superfrogUserService.save(u1);
+        this.superfrogUserService.save(u2);
+        this.superfrogUserService.save(u3);
 
         // Create some customers
+        /**
         Customer c1 = new Customer();
         c1.setId(1L);
         c1.setFirstName("John");
@@ -97,17 +136,18 @@ public class DBDataInitializer implements CommandLineRunner {
         c2.setEmail("jane.smith@example.com");
         c2.setPhoneNumber("987-654-3210");
 
-        /**
          * Customer c3 = new Customer();
          * c3.setId(3L);
          * c3.setFirstName("Emma");
          * c3.setLastName("Johnson");
          * c3.setEmail("emma.johnson@example.com");
          * c3.setPhoneNumber("(555) 123-4567");
+         *
+         * customerRepository.save(c1);
+         * customerRepository.save(c2);
          */
 
-        customerRepository.save(c1);
-        customerRepository.save(c2);
+
 
     }
 }

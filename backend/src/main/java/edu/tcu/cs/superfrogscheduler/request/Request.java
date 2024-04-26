@@ -2,6 +2,7 @@ package edu.tcu.cs.superfrogscheduler.request;
 
 
 import edu.tcu.cs.superfrogscheduler.customer.Customer;
+import edu.tcu.cs.superfrogscheduler.superfrog.Superfrog;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -44,6 +45,9 @@ public class Request implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Customer owner;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Superfrog superfrog;
 
     public Request() {
 
@@ -185,4 +189,11 @@ public class Request implements Serializable {
         this.owner = owner;
     }
 
+    public Superfrog getSuperfrog() {
+        return superfrog;
+    }
+
+    public void setSuperfrog(Superfrog superfrog) {
+        this.superfrog = superfrog;
+    }
 }
