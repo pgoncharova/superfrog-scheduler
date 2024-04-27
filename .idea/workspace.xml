@@ -5,51 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="643a73cc-b595-4b83-8796-4dc5126a0f12" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/security/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/security/AuthService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/security/CorsConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/security/CustomBasicAuthenticationEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/security/CustomBearerTokenAccessDeniedHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/security/CustomBearerTokenAuthenticationEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/security/JwtProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/security/SecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/user/MyUserPrincipal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/user/SuperfrogUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/user/SuperfrogUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/user/SuperfrogUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/user/SuperfrogUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/utils/converter/SuperfrogUserDtoToSuperfrogUserConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/utils/converter/SuperfrogUserToSuperfrogUserDtoConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/utils/dto/SuperfrogUserDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/SuperfrogSchedulerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/SuperfrogSchedulerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/request/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/request/Request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/request/RequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/request/RequestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/superfrog/Superfrog.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/superfrog/Superfrog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/superfrog/SuperfrogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/superfrog/SuperfrogRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/superfrog/SuperfrogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/superfrog/SuperfrogService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/system/DBDataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/system/DBDataInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/utils/converter/RequestToRequestDtoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/utils/converter/RequestToRequestDtoConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/utils/dto/RequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/edu/tcu/cs/superfrogscheduler/utils/dto/RequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/edu/tcu/cs/superfrogscheduler/request/RequestControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/edu/tcu/cs/superfrogscheduler/request/RequestControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/SuperfrogSchedulerApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/SuperfrogSchedulerApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/request/Request.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/request/Request.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/request/RequestService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/request/RequestService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/spiritDirector/SpiritDirectorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/spiritDirector/SpiritDirectorService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/superfrog/Superfrog.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/superfrog/Superfrog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/superfrog/SuperfrogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/superfrog/SuperfrogController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/superfrog/SuperfrogRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/superfrog/SuperfrogRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/superfrog/SuperfrogService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/superfrog/SuperfrogService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/system/DBDataInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/system/DBDataInitializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/utils/converter/RequestToRequestDtoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/utils/converter/RequestToRequestDtoConverter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/utils/dto/RequestDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/edu/tcu/cs/superfrogscheduler/utils/dto/RequestDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/edu/tcu/cs/superfrogscheduler/request/RequestControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/edu/tcu/cs/superfrogscheduler/request/RequestControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/edu/tcu/cs/superfrogscheduler/superfrog/SuperfrogControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/edu/tcu/cs/superfrogscheduler/superfrog/SuperfrogControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/edu/tcu/cs/superfrogscheduler/superfrog/SuperfrogServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/edu/tcu/cs/superfrogscheduler/superfrog/SuperfrogServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Request/Request.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Request/Request.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Login/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Login/Login.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +102,7 @@
       <recent name="edu.tcu.cs.superfrogscheduler.request" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in superfrog-scheduler">
+  <component name="RunManager" selected="Application.SuperfrogSchedulerApplication">
     <configuration name="SuperfrogSchedulerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.tcu.cs.superfrogscheduler.SuperfrogSchedulerApplication" />
       <module name="superfrog-scheduler" />
@@ -217,8 +174,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in superfrog-scheduler" />
         <item itemvalue="Application.SuperfrogSchedulerApplication" />
+        <item itemvalue="JUnit.All in superfrog-scheduler" />
         <item itemvalue="JUnit.CustomerControllerTest.testAssignRequestSuccess" />
         <item itemvalue="JUnit.CustomerControllerTest.testDeleteErrorWithNonExistentId" />
         <item itemvalue="JUnit.CustomerControllerTest.testDeleteSuccess" />
