@@ -43,6 +43,9 @@ import axios from 'axios';
 export default {
   data() {
     return {
+        components: [
+            {name: 'Receipt', component: Receipt},
+        ],
       currentStep: 1,
       steps: [
         {
@@ -86,7 +89,9 @@ export default {
         outsideOrg: "",
         expenseBenefit: "",
         eventType: "",
-      }
+        stats: "PENDING",
+        receiptId: "",
+      },
     };
   },
   methods: {
@@ -114,16 +119,40 @@ export default {
       this.eventInfo = data;
     },
     submitOrder() {
-      router.push(`/receipt`);
-    }
-  },
+        axios.post('http://localhost:8080/api/requests', {
+            firstName: this.eventInfo.contactFirstName,
+            lastName: this.eventInfo.contactLastName,
+            email: this.eventInfo.email,
+            eventType: this.eventInfo.eventType,
+            eventTitle: this.eventInfo.eventTitle,
+            organizationName: this.eventInfo.organizationName,
+            eventAddress: this.eventInfo.address,
+            phoneNumber: this.eventInfo.phoneNumber,
+            specialInstructions: this.eventInfo.specialInstruction,
+            benefitsDescription: this.eventInfo.expenseBenefit,
+            detailedDescription: this.eventInfo.eventDescription,
+            status: "PENDING"
+
+            //selectedDate: this.eventInfo.selectedDate,
+            //startTime: this.eventInfo.startTime,
+            //endTime: this.eventInfo.endTime,
+        }).then(response => {
+            const data = response.data;
+            console.log(data.requestId);
+            this.eventInfo.receiptId = data.requestId;
+            router.push(`/receipt`);
+        }).catch(error => {
+            console.log(error);
+        });
+       }
+    },
   components: {
     Step1,
     Step2,
     Step3,
     Step4,
     Receipt
-  }
+  },
 };
 </script>
 

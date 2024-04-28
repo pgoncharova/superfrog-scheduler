@@ -1,14 +1,19 @@
 <template>
     <div class="text">
         <h1> Thank you for your order <br>
-           Your confirmation id is: //need implementation for generating id and get it from back end</h1>
+           Your confirmation id is: {{ eventInfo.receiptId }}</h1>
     </div>
 </template>
 
 <script>
-    export default {
-        
+  export default {
+    name: 'receipt',
+    props:{
+      eventInfo: {
+        type: Object
+      }
     }
+  }
 </script>
 
 <style lang="scss" scoped>

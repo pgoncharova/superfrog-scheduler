@@ -31,7 +31,7 @@ const router = createRouter({
             ]
         },        
         { path: '/modify', name: 'modify', component: RequestModify },
-        { path: '/receipt', name: 'receipt', component: Receipt},
+        { path: '/receipt', name: 'receipt', component: Receipt, props: true},
         { path: '/login', name: 'login', component: Login},
     ],
 });
