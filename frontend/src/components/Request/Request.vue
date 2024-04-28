@@ -143,7 +143,7 @@ export default {
           const data = response.data;
           console.log(data.data.id); // Adjust this line depending on the structure of the response
           this.eventInfo.receiptId = data.data.id; // Adjust this line depending on the structure of the response
-          this.$router.push(`/receipt`);
+          this.$router.push({ name: 'Receipt', params: { requestId: data.data.id } });
         })
         .catch((error) => {
           console.error(error);
