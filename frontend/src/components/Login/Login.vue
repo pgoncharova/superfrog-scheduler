@@ -32,6 +32,11 @@
                             Authorization: basicAuth
                         }
                     });
+                    const token = response.data.data.token;
+                    console.log(token);
+                    const username = response.data.data.userInfo.username;
+                    localStorage.setItem('token', token);
+                    localStorage.setItem('username', username);
                     this.$router.push('/');
                 } catch (error) {
                     console.error(error);
