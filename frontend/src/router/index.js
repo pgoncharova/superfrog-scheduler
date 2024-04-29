@@ -10,6 +10,7 @@ import Step3 from '../views/step3.vue';
 import Step4 from '../views/step4.vue';
 import Receipt from '../components/Receipt/Receipt.vue';
 import Login from '../components/Login/Login.vue';
+import ModifyDetail from '../components/RequestModify/ModifyDetail.vue';
 
 
 
@@ -38,6 +39,7 @@ const router = createRouter({
             props: true,
           },
         { path: '/login', name: 'login', component: Login},
+        { path: '/modify-request/:requestId', name: 'modify-detail', component: ModifyDetail},
     ],
 });
 export default router;
