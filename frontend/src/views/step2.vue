@@ -55,6 +55,11 @@
       </div>
 
       <div class="form-group">
+        <label for="isOnCampus">Is on Campus?</label>
+        <input type="checkbox" id="isOnCampus" v-model="eventInfo.isOnCampus" @input="updateParent" />
+      </div>
+
+      <div class="form-group">
         <label for="event-description">Event Description</label>
         <textarea id="event-description" v-model="eventInfo.eventDescription" @input="updateParent"></textarea>
       </div>
@@ -93,6 +98,7 @@ export default {
       eventDescription: this.eventInfo.eventDescription,
       selectedDate: this.eventInfo.selectedDate,
       startTime: this.eventInfo.startTime,
+      isOnCampus: this.isOnCampus,
       endTime: this.eventInfo.endTime,
       organizationName: this.eventInfo.organizationName,
       phoneNumber: this.eventInfo.phoneNumber,

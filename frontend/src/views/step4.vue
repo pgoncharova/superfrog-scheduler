@@ -42,6 +42,10 @@
           <td>{{eventInfo.address}}</td>
         </tr>
         <tr>
+          <td>Is on Campus</td>
+          <td>{{eventInfo.isOnCampus}}</td>
+        </tr>
+        <tr>
           <td>Name of Organization</td>
           <td>{{eventInfo.organizationName}}</td>
         </tr>
