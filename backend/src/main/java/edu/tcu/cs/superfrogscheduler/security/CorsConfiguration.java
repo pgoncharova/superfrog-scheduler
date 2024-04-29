@@ -13,7 +13,11 @@ public class CorsConfiguration {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**"); // Enable CORS for the whole application.
+                registry.addMapping("/**")
+                        .allowedOrigins("http://localhost:5173") // Allow this origin to make requests
+                        .allowedMethods("GET", "POST", "PUT", "DELETE") // Allowed HTTP methods
+                        .allowedHeaders("*") // Allow all headers
+                        .allowCredentials(true); // Include cookies in the requests; // Enable CORS for the whole application.
             }
         };
     }

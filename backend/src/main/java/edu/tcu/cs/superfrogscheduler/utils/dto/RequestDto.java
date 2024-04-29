@@ -16,19 +16,19 @@ public record RequestDto (String id,
                           String eventType,
                           @NotEmpty(message = "event title is required.")
                           String eventTitle,
-                          @NotEmpty(message = "organization name is required.")
+                          //@NotEmpty(message = "organization name is required.")
                           String organizationName,
-                          @NotEmpty(message = "event address is required.")
+                          //@NotEmpty(message = "event address is required.")
                           String eventAddress,
-                          @NotNull(message = "whether on-campus is required.")
+                          //@NotNull(message = "whether on-campus is required.")
                           boolean isOnCampus,
-                          @NotEmpty(message = "special instructions are required.")
+                          //@NotEmpty(message = "special instructions are required.")
                           String specialInstructions,
-                          @NotEmpty(message = "benefits description is required.")
+                          //@NotEmpty(message = "benefits description is required.")
                           String benefitsDescription,
-                          @NotEmpty(message = "sponsor description is required.")
+                          //@NotEmpty(message = "sponsor description is required.")
                           String sponsorDescription,
-                          @NotEmpty(message = "detailed description is required.")
+                          //@NotEmpty(message = "detailed description is required.")
                           String detailedDescription,
                           CustomerDto customerDto,
                           SuperfrogDto superfrogDto) {

@@ -14,7 +14,11 @@
     </div>
 
     <!-- Router view for dynamic step components -->
-    <router-view :key="currentStep" :event-info="eventInfo" @send-data="sendData"></router-view>
+    <router-view
+      :key="currentStep"
+      :event-info="eventInfo"
+      @send-data="sendData"
+    ></router-view>
 
     <div class="button-container">
       <button @click="goHome">Home</button>
@@ -32,17 +36,18 @@
 </template>
 
 <script>
-import router from '../../router';
-import Step1 from '../../views/step1.vue';
-import Step2 from '../../views/step2.vue';
-import Step3 from '../../views/step3.vue';
-import Step4 from '../../views/step4.vue';
-import Receipt from '../Receipt/Receipt.vue';
-import axios from 'axios';
+import router from "../../router";
+import Step1 from "../../views/step1.vue";
+import Step2 from "../../views/step2.vue";
+import Step3 from "../../views/step3.vue";
+import Step4 from "../../views/step4.vue";
+import Receipt from "../Receipt/Receipt.vue";
+import axios from "axios";
 
 export default {
   data() {
     return {
+      components: [{ name: "Receipt", component: Receipt }],
       currentStep: 1,
       steps: [
         {
@@ -72,7 +77,7 @@ export default {
       ],
       eventInfo: {
         contactFirstName: "",
-        contactLastName:  "",
+        contactLastName: "",
         email: "",
         eventTitle: "",
         eventDescription: "",
@@ -86,12 +91,14 @@ export default {
         outsideOrg: "",
         expenseBenefit: "",
         eventType: "",
-      }
+        stats: "PENDING",
+        receiptId: "",
+      },
     };
   },
   methods: {
     goHome() {
-      router.push('/');
+      router.push("/");
     },
     goToNextStep() {
       if (this.currentStep < this.steps.length) {
@@ -114,16 +121,42 @@ export default {
       this.eventInfo = data;
     },
     submitOrder() {
-      router.push(`/receipt`);
-    }
+      axios
+        .post("http://localhost:8080/api/requests", {
+          firstName: this.eventInfo.contactFirstName,
+          lastName: this.eventInfo.contactLastName,
+          email: this.eventInfo.email,
+          eventType: this.eventInfo.eventType,
+          eventTitle: this.eventInfo.eventTitle,
+          organizationName: this.eventInfo.organizationName,
+          eventAddress: this.eventInfo.address,
+          phoneNumber: this.eventInfo.phoneNumber,
+          specialInstructions: this.eventInfo.specialInstruction,
+          benefitsDescription: this.eventInfo.expenseBenefit,
+          detailedDescription: this.eventInfo.eventDescription,
+          status: "PENDING",
+          selectedDate: this.eventInfo.selectedDate,
+          //startTime: this.eventInfo.startTime,
+          //endTime: this.eventInfo.endTime,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data.data.id); // Adjust this line depending on the structure of the response
+          this.eventInfo.receiptId = data.data.id; // Adjust this line depending on the structure of the response
+          this.$router.push({ name: 'Receipt', params: { requestId: data.data.id } });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
   },
   components: {
     Step1,
     Step2,
     Step3,
     Step4,
-    Receipt
-  }
+    Receipt,
+  },
 };
 </script>
 
