@@ -43,6 +43,7 @@
   
         <br />
         <button @click="updateRequest">Update</button>
+        <button @click="cancelRequest">Cancel</button>
       </div>
       <p v-if="errorMessage" style="color: red">{{ errorMessage }}</p>
     </div>
@@ -78,7 +79,16 @@
           console.error("Error updating request:", error);
           this.errorMessage = "Failed to update request. Please try again later.";
         }
-      }
+      },
+      async cancelRequest(){
+        try {
+          await axios.delete(`http://localhost:8080/api/requests/${this.requestId}`);
+          alert("Request cancel successfully!");
+        } catch (error) {
+          console.error("Error canceling request:", error);
+          this.errorMessage = "Failed to cancel request. Please try again later.";
+        }
+      },
     },
     mounted() {
       this.requestId = this.$route.params.requestId;
@@ -92,6 +102,7 @@
 .event-form-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   max-width: 500px;
   margin: auto;
   padding: 1rem;
