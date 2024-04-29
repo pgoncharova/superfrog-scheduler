@@ -44,6 +44,7 @@
         <br />
         <button @click="updateRequest">Update</button>
         <button @click="cancelRequest">Cancel</button>
+        <button @click="goHome">Home</button>
       </div>
       <p v-if="errorMessage" style="color: red">{{ errorMessage }}</p>
     </div>
@@ -52,6 +53,7 @@
 
   <script>
   import axios from 'axios';
+  import router from "../../router/index";
   
   export default {
     data() {
@@ -62,6 +64,9 @@
       };
     },
     methods: {
+      goHome() {
+      router.push("/");
+      },
       async fetchRequestData() {
         try {
           const response = await axios.get(`http://localhost:8080/api/requests/${this.requestId}`);

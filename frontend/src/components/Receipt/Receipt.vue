@@ -4,10 +4,14 @@
       Thank you for your order <br>
       Your confirmation id is: {{ requestId }}
     </h1>
+    <div>
+      <button @click="goHome">Home</button>
+    </div>
   </div>
 </template>
 <script>
 import axios from 'axios';
+import router from '../../router/index';
 
 export default {
   name: 'receipt',
@@ -26,6 +30,9 @@ export default {
     this.fetchReceiptId();
   },
   methods: {
+    goHome() {
+      router.push("/");
+    },
     async fetchReceiptId() {
     try {
       // Make an API call to your backend endpoint to fetch the receipt details
