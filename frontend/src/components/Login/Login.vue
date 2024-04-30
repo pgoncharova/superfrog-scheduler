@@ -17,6 +17,7 @@
       />
       <button @click="login">Login</button>
       <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <button @click="goHome">Home</button>
     </div>
   </div>
 </template>
@@ -53,16 +54,18 @@ export default {
         localStorage.setItem("token", token);
         localStorage.setItem("username", username);
         if (role == "superfrog") {
-            this.$router.push(`/super-frog/${id}}`);
-        }   
-        else if (role == "superfrog spiritdirector") {
-            this.$router.push(`/super-frog-director`);
+          this.$router.push(`/super-frog/${id}}`);
+        } else if (role == "superfrog spiritdirector") {
+          this.$router.push(`/super-frog-director`);
         }
       } catch (error) {
         console.error(error);
         this.errorMessage = error.response.data.message;
       }
     },
+    goHome() {
+        this.$router.push('/');
+    }
   },
 };
 </script>
