@@ -11,6 +11,8 @@ import Step4 from '../views/step4.vue';
 import Receipt from '../components/Receipt/Receipt.vue';
 import Login from '../components/Login/Login.vue';
 import ModifyDetail from '../components/RequestModify/ModifyDetail.vue';
+import SuperFrogDirector from '../components/SuperFrogDirector/SuperFrogDirector.vue';
+import SuperFrog from '../components/SuperFrogStudent/SuperFrogStudent.vue';
 
 
 
@@ -32,14 +34,11 @@ const router = createRouter({
             ]
         },        
         { path: '/modify', name: 'modify', component: RequestModify },
-        {
-            path: '/receipt/:requestId',
-            name: 'Receipt',
-            component: Receipt,
-            props: true,
-          },
+        { path: '/receipt/:requestId', name: 'Receipt', component: Receipt, props: true,},
         { path: '/login', name: 'login', component: Login},
         { path: '/modify-request/:requestId', name: 'modify-detail', component: ModifyDetail},
+        { path: '/super-frog-director', name: 'super-frog-director', component: SuperFrogDirector},
+        { path: '/super-frog/:id', name: 'super-frog', component: SuperFrog},
     ],
 });
 export default router;
