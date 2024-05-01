@@ -69,7 +69,7 @@
       },
       async fetchRequestData() {
         try {
-          const response = await axios.get(`http://localhost:8080/api/requests/${this.requestId}`);
+          const response = await axios.get(`https://superfrog-container-backend.nicerock-3516d100.eastus.azurecontainerapps.io/api/requests/${this.requestId}`);
           this.requestData = response.data.data; // Assuming the backend returns data in this structure
         } catch (error) {
           console.error("Error fetching request data:", error);
@@ -78,7 +78,7 @@
       },
       async updateRequest() {
         try {
-          const response = await axios.put(`http://localhost:8080/api/requests/${this.requestId}`, this.requestData);
+          const response = await axios.put(`https://superfrog-container-backend.nicerock-3516d100.eastus.azurecontainerapps.io/api/requests/${this.requestId}`, this.requestData);
           alert("Request updated successfully!");
         } catch (error) {
           console.error("Error updating request:", error);
@@ -87,7 +87,7 @@
       },
       async cancelRequest(){
         try {
-          await axios.delete(`http://localhost:8080/api/requests/${this.requestId}`);
+          await axios.delete(`https://superfrog-container-backend.nicerock-3516d100.eastus.azurecontainerapps.io/api/requests/${this.requestId}`);
           alert("Request cancel successfully!");
         } catch (error) {
           console.error("Error canceling request:", error);
