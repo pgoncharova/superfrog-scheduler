@@ -118,7 +118,7 @@ body {
 
 /* Sort Icons */
 .sort-icon {
-  margin-left: 5px;
+  cursor: pointer;
 }
 
 /* Pagination styles */

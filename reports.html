@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Reports - SuperFrog Scheduler</title>
+ <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+   <!-- Sidebar -->
+   <div class="sidebar">
+       <div class="logo-container">
+         <img src="superfrog-logo.png" alt="SuperFrog Logo">
+       </div>
+       <div class="sidebar-section">
+         <div class="sidebar-section-header">SuperFrog Students</div>
+         <div class="sidebar-section-links" style="display: none;">
+           <a href="add_student.html">Add a New Student</a>
+           <a href="view_students.html">View All Students</a>
+         </div>
+       </div>
+       <div class="sidebar-section">
+         <div class="sidebar-section-header">Requests</div>
+         <div class="sidebar-section-links" style="display: none;">
+           <a href="add_request.html">Add a New Request</a>
+           <a href="view_requests.html">View All Requests</a>
+         </div>
+       </div>
+       <a href="calendar.html" class="sidebar-single-link">Calendar</a>
+       <a href="reports.html" class="sidebar-single-link">Reports</a>
+     </div>
+
+
+<div class="content">
+ <h2>Reports</h2>
+ <form id="reports-form">
+   <div class="form-group">
+     <label for="event-type">Event Type</label>
+     <select id="event-type" name="event_type" required>
+       <option value="">Select Event Type</option>
+       <option value="sports">Sports</option>
+       <option value="academic">Academic</option>
+       <option value="social">Social</option>
+       <!-- Space for more options if needed -->
+     </select>
+   </div>
+
+
+   <div class="form-group">
+     <label for="date-range">Date Range</label>
+     <input type="date" id="date-from" name="date_from" required>
+     to
+     <input type="date" id="date-to" name="date_to" required>
+   </div>
+
+
+   <div class="form-group">
+     <button type="submit" class="submit-button">Generate Report</button>
+   </div>
+ </form>
+
+
+ <div id="reports-results">
+   <!-- The generated report displayed here -->
+ </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
