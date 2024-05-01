@@ -36,7 +36,7 @@ export default {
     async fetchReceiptId() {
     try {
       // Make an API call to your backend endpoint to fetch the receipt details
-      const response = await axios.get(`http://localhost:8080/api/requests/${this.$route.params.requestId}`);
+      const response = await axios.get(`https://superfrog-container-backend.nicerock-3516d100.eastus.azurecontainerapps.io/api/requests/${this.$route.params.requestId}`);
       this.requestId = response.data.id;
     } catch (error) {
       console.error('Error fetching receipt details:', error);

@@ -38,7 +38,7 @@ export default {
       try {
         const basicAuth = "Basic " + btoa(this.username + ":" + this.password);
         const response = await axios.post(
-          "http://localhost:8080/api/users/login",
+          "https://superfrog-container-backend.nicerock-3516d100.eastus.azurecontainerapps.io/api/users/login",
           {},
           {
             headers: {

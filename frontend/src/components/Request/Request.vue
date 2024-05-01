@@ -123,7 +123,7 @@ export default {
     },
     submitOrder() {
       axios
-        .post("http://localhost:8080/api/requests", {
+        .post("https://superfrog-container-backend.nicerock-3516d100.eastus.azurecontainerapps.io/api/requests:8080/api/requests", {
           firstName: this.eventInfo.contactFirstName,
           lastName: this.eventInfo.contactLastName,
           email: this.eventInfo.email,
